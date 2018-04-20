@@ -117,6 +117,18 @@
       "check-separator",
       "check-type"
     ],
+    "directive-selector": [
+      true,
+      "attribute",
+      "bc",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "bc",
+      "kebab-case"
+    ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

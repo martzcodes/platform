@@ -43,8 +43,8 @@ Lots of files added: `db.ts`, `index.ts` (for `app.module.ts`), routes (need to 
 Also need to install all the ngrx stuff / schematics
 
 ```
-ng new example-app -p=bc --routing -it -is
-cd example-app
+ng new generated -p=bc --routing -it -is --skip-install --skip-git
+cd generated
 yarn add @angular/material @angular/cdk
 yarn add @ngrx/{store,effects,entity,store-devtools}
 yarn add @ngrx/schematics
@@ -54,17 +54,16 @@ ng set defaults.schematics.collection=@ngrx/schematics
 Possible commands:
 
 ```
-ng g module auth # (maybe automatically created with...)
-ng g guard auth
+ng g module auth
+ng g module books
+ng g module core
+ng g guard auth/auth -m auth/auth.module.ts
 ng g c auth/components/login-form
-ng g model auth/components/user
 ng g effect auth/effects/auth
 ng g reducer auth/reducers/auth
 ng g reducer auth/reducers/login-page
-ng g s auth-guard auth/services/auth-guard
-ng g module books
+ng g s auth/services/auth-guard
 ng g action books/actions/book
-ng g collection books/actions/collection
 ng g c books/components/book-authors
 ng g c books/components/book-detail
 ng g c books/components/book-preview
@@ -75,13 +74,9 @@ ng g c books/containers/find-book-page
 ng g c books/containers/selected-book-page
 ng g c books/containers/view-book-page
 ng g effect books/effects/book
-ng g collection books/effects/collection
 ng g guard books/guards/book-exists
-ng g model books/models/book
 ng g reducer books/reducers/books
-ng g collection books/reducers/collection
 ng g reducer books/reducers/search
-ng g module core
 ng g action core/actions/layout
 ng g c core/components/layout
 ng g c core/components/nav-item
@@ -92,4 +87,11 @@ ng g c core/containers/not-found-page
 ng g reducer core/reducers/layout
 ng g s core/services/google-books
 ng g m material
+ng g model auth/components/user # model not at generator
+ng g model books/models/book
+ng g collection books/actions/collection # no collection
+ng g collection books/effects/collection
+ng g collection books/reducers/collection
 ```
+
+`rm -rf generated/src && mkdir generated/src && cp -r example-app/* generated/src/`
