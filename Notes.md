@@ -57,7 +57,7 @@ Possible commands:
 ng g module auth
 ng g module books
 ng g module core
-ng g c auth/components/login-form
+ng g c auth/components/login-form --flat
 ng g effect auth/effects/auth
 ng g reducer auth/reducers/auth
 ng g reducer auth/reducers/login-page
@@ -65,26 +65,26 @@ ng g s auth/services/auth-guard
 ng g s auth/services/auth
 ng g action books/actions/book
 ng g action auth/actions/auth
-ng g c books/components/book-authors
-ng g c books/components/book-detail
-ng g c books/components/book-preview
-ng g c books/components/book-preview-list
-ng g c books/components/book-search
-ng g c books/containers/collection-page
-ng g c books/containers/find-book-page
-ng g c books/containers/selected-book-page
-ng g c books/containers/view-book-page
+ng g c books/components/book-authors --flat
+ng g c books/components/book-detail --flat
+ng g c books/components/book-preview --flat
+ng g c books/components/book-preview-list --flat
+ng g c books/components/book-search --flat
+ng g c books/containers/collection-page --flat
+ng g c books/containers/find-book-page --flat
+ng g c books/containers/selected-book-page --flat
+ng g c books/containers/view-book-page --flat
 ng g effect books/effects/book
 ng g guard books/guards/book-exists -m books/books.module.ts
 ng g reducer books/reducers/books
 ng g reducer books/reducers/search
 ng g action core/actions/layout
-ng g c core/components/layout
-ng g c core/components/nav-item
-ng g c core/components/sidenav
-ng g c core/components/toolbar
-ng g c core/containers/app
-ng g c core/containers/not-found-page
+ng g c core/components/layout --flat
+ng g c core/components/nav-item --flat
+ng g c core/components/sidenav --flat
+ng g c core/components/toolbar --flat
+ng g c core/containers/app --flat
+ng g c core/containers/not-found-page --flat
 ng g reducer core/reducers/layout
 ng g s core/services/google-books
 ng g m material
@@ -97,16 +97,19 @@ ng g effect books/effects/collection
 ng g effect books/reducers/collection
 ```
 
-`touch src/app/db.ts src/app/index.ts src/app/auth/reducers/index.ts`
-`touch src/app/books/reducers/index.ts src/app/material/index.ts`
-`touch src/app/core/reducers/index.ts src/app/shared/utils.ts src/app/shared/pipes/index.ts`
-
-`rm -rf generated/src && mkdir generated/src && cp -r example-app/* generated/src/ && rm -rf generated/src/**/*.ts.snap`
+```
+touch src/app/db.ts src/app/index.ts src/app/auth/reducers/index.ts
+touch src/app/books/reducers/index.ts src/app/material/index.ts
+touch src/app/core/reducers/index.ts src/app/shared/utils.ts src/app/shared/pipes/index.ts
+```
 
 ```
 find . -name '*.component*ts' -type f -exec bash -c 'mv "$1" "${1/.component/}"' -- {} \;
 find . -name '*.service*ts' -type f -exec bash -c 'mv "$1" "${1/.service/}"' -- {} \;
 find . -name '*.reducer*ts' -type f -exec bash -c 'mv "$1" "${1/.reducer/}"' -- {} \;
 find . -name '*.pipe*ts' -type f -exec bash -c 'mv "$1" "${1/.pipe/}"' -- {} \;
-find . -name '*.actions*ts' -type f -exec bash -c 'mv "$1" "${1/.actions/}"' -- {}
-find . -name '*.guard*ts' -type f -exec bash -c 'mv "$1" "${1/.guard/}"' -- {} \;```
+find . -name '*.actions*ts' -type f -exec bash -c 'mv "$1" "${1/.actions/}"' -- {} \;
+find . -name '*.guard*ts' -type f -exec bash -c 'mv "$1" "${1/.guard/}"' -- {} \;
+```
+
+`rm -rf generated/src && mkdir generated/src && cp -r example-app/* generated/src/ && rm -rf generated/src/**/*.ts.snap`
