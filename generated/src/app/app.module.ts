@@ -4,15 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
 import { AddCommasPipe } from './shared/pipes/add-commas.pipe';
+import { EllipsisPipe } from './shared/pipes/ellipsis.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EllipsisPipe,
-    AddCommasPipe
+    AddCommasPipe,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,
