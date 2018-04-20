@@ -11,3 +11,11 @@ So... update to node 9...
 Re-run the npx command
 
 Re-add the removed files
+
+Basically everything is different in package.json...
+
+Ended up renaming the original package.json / package-lock / yarn lock angular.json to make sure they don't conflict accidentally.
+
+Remove things that aren't relevent (e.g. build)
+
+Go through src...
