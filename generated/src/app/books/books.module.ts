@@ -9,11 +9,13 @@ import { CollectionPageComponent } from './containers/collection-page/collection
 import { FindBookPageComponent } from './containers/find-book-page/find-book-page.component';
 import { SelectedBookPageComponent } from './containers/selected-book-page/selected-book-page.component';
 import { ViewBookPageComponent } from './containers/view-book-page/view-book-page.component';
+import { BookExistsGuard } from './guards/book-exists.guard';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [BookAuthorsComponent, BookDetailComponent, BookPreviewComponent, BookPreviewListComponent, BookSearchComponent, CollectionPageComponent, FindBookPageComponent, SelectedBookPageComponent, ViewBookPageComponent]
+  declarations: [BookAuthorsComponent, BookDetailComponent, BookPreviewComponent, BookPreviewListComponent, BookSearchComponent, CollectionPageComponent, FindBookPageComponent, SelectedBookPageComponent, ViewBookPageComponent],
+  providers: [BookExistsGuard]
 })
 export class BooksModule { }
